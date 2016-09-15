@@ -1,0 +1,45 @@
+﻿@model NewsApp.Models.Article
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="content">
+    <div id="menu" class="col-md-3">
+        <a href="/article/add" class="btn btn-info">Add new article</a>
+    </div>
+    <div id="article" class="col-md-6">
+        <div class="articleDate col-md-12">@Model.CreationDate</div>
+        <h3 class="articleTitle col-md-12"><strong>@Model.Title</strong></h3>
+        <hr />
+        <div class="articleDescription col-md-12"><strong>@Model.ShortDescription</strong></div>
+        <div class="articlePicture col-md-12">
+            <img src="@Model.PicturePath" alt="@Model.PicturePath" />
+        </div>
+        <div class="articleContent col-md-12">@Model.Content</div>
+    </div>
+    <div id="banner" class="col-md-3"></div>
+</div>
+
+@section css{
+    <style>
+        #content {
+            margin-top: 20px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .articleTitle {
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .articleDescription {
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .articlePicture {
+            margin-bottom: 5px;
+        }
+    </style>
+}

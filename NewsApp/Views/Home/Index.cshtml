@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "News";
+}
+
+<div ng-app="newsApp">
+    <div id="content" ng-controller="newsController">
+        <div id="menu" class="col-md-3">
+            <a href="/article/add" class="btn btn-info">Add new article</a>
+        </div>
+        <div id="articles" class="col-md-7">
+
+
+            <div class="articleItem" ng-repeat="article in news.articles">
+                <div class="col-md-3">
+                    <a href="/article/getarticle/{{article.Id}}"><img src="{{article.PicturePath}}article.PicturePath" alt="{{article.PicturePath}}" /></a>
+                </div>
+                <div class="col-md-9">
+                    <div class="articleDate col-md-12">{{article.CreationDate}}</div>
+                    <a href="/article/getarticle/{{article.Id}}">
+                        <div class="articleTitle col-md-12"><strong>{{article.Title}}</strong></div>
+                    </a>
+                    <div class="articleDescription col-md-12">{{article.ShortDescription}}</div>
+                </div>
+            </div>
+            <div id="pageSection">
+                <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-link-numbers="true" ng-change="getArticles(currentPage, setLane)"></ul>
+            </div>
+        </div>
+        <div id="banner" class="col-md-2"></div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/news/newsApp.js"></script>
+    <script src="~/Scripts/news/newsController.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
+}
+@section css{
+    <link href="~/Content/index.css" rel="stylesheet" />
+}

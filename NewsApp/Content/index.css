@@ -1,0 +1,28 @@
+﻿
+#content {
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.articleItem {
+    padding-bottom: 5px;
+    padding-top: 2px;
+    overflow: auto;
+    border-bottom: 1px dotted gray;
+}
+
+.articleDate {
+    color: gray;
+    font-size: 12px;
+}
+
+.articleTitle {
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+
+#pageSection {
+    margin-top: 3px;
+    text-align: center;
+}
