@@ -6,19 +6,21 @@
         $scope.totalItems = {};
         $scope.maxSize = 5;
         $scope.setLane = function (data) {
-            $scope.totalItems = data.pages * 10;
-            $.each(data.articles,
-                function (index, value) {
-                    value.CreationDate = value.CreationDate;
-                });
+            $scope.totalItems = data.articlesNum;
             $scope.news = {
                 articles: data.articles
             };
+            $(document).scrollTop(0);
         };
         $scope.getArticles = function (page, callback) {
-            $http.get('/article/getarticles/' + page).success(function (data) {
+            $http.get('/news/getarticles/' + page).success(function (data) {
                 callback(data);
             });
         }
-        $scope.getArticles(1, $scope.setLane);
+        $scope.delete = function(id) {
+            $http.get('/news/delete/' + id).success(function (data) {
+                $scope.getArticles($scope.currentPage, $scope.setLane);
+            });
+        }
+        $scope.getArticles($scope.currentPage, $scope.setLane);
     });

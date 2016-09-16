@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
-using System.Web.UI.WebControls;
-using System.Web.WebPages;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Practices.EnterpriseLibrary.Data;
+using NewsApp.DAL.Entities;
+using NewsApp.DAL.Interfaces;
 
-namespace NewsApp.Models.Repository
+namespace NewsApp.DAL.Repositories
 {
-    public class SqlArticleRepository : IRepository<Article>
+    class ArticleRepository : IRepository<Article>
     {
-        private DatabaseProviderFactory factory;
         private Database database;
-        public SqlArticleRepository()
+        public ArticleRepository(Database database)
         {
-            factory = new DatabaseProviderFactory();
-            database = factory.Create("MSSqlConnection");
+            this.database = database;
         }
 
         public IEnumerable<Article> GetItems(int page, out int numberOfArticles)
@@ -38,22 +34,22 @@ namespace NewsApp.Models.Repository
             return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault();
         }
 
-        public void Create(Article article)
+        public Article Create(Article article)
         {
             object[] parameters = { 0, article.Title, article.ShortDescription, article.Content, article.PicturePath, null, null, 1 };
-            database.ExecuteSprocAccessor<Article>("article_crud", parameters);
+            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); ;
         }
 
-        public void Update(Article article)
+        public Article Update(Article article)
         {
             object[] parameters = { article.Id, article.Title, article.ShortDescription, article.Content, article.PicturePath, null, null, 2 };
-            database.ExecuteSprocAccessor<Article>("article_crud", parameters);
+            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); ;
         }
 
-        public void Delete(int id)
+        public Article Delete(int id)
         {
             object[] parameters = { id, null, null, null, null, null, null, 3 };
-            database.ExecuteSprocAccessor<Article>("article_crud", parameters);
+            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); ;
         }
     }
 }

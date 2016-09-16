@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace NewsApp.Models
+namespace NewsApp.BLL.DTO
 {
-    public class Article
+    public class ArticleDTO
     {
         public int Id { get; set; }
         public string Title { get; set; }

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NewsApp.DAL.Entities;
 
-namespace NewsApp.Models.Repository
+namespace NewsApp.DAL.Interfaces
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IEnumerable<T> GetItems(int page, out int numberOfArticles);
         T GetItem(int id);
-        void Create(T item);
-        void Update(T item);
-        void Delete(int id);
+        Article Create(T item);
+        Article Update(T item);
+        Article Delete(int id);
     }
 }

@@ -1,11 +1,11 @@
-﻿@model NewsApp.Models.Article
+﻿@model NewsApp.Models.ArticleViewModel
 @{
     ViewBag.Title = Model.Title;
 }
 
 <div id="content">
     <div id="menu" class="col-md-3">
-        <a href="/article/add" class="btn btn-info">Add new article</a>
+        <a href="/news/add" class="btn btn-info">Add new article</a>
     </div>
     <div id="article" class="col-md-6">
         <div class="articleDate col-md-12">@Model.CreationDate</div>
