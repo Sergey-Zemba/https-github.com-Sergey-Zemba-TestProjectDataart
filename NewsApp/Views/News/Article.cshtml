@@ -13,7 +13,7 @@
         <hr />
         <div class="articleDescription col-md-12"><strong>@Model.ShortDescription</strong></div>
         <div class="articlePicture col-md-12">
-            <img src="@Model.PicturePath" alt="@Model.PicturePath" />
+            <img src="/Content/Images/@Model.ImageName" alt="@Model.ImageName" />
         </div>
         <div class="articleContent col-md-12">@Model.Content</div>
     </div>
@@ -40,6 +40,12 @@
 
         .articlePicture {
             margin-bottom: 5px;
+        }
+
+        img {
+            object-fit: contain;
+            width: 500px;
+            height: 500px;
         }
     </style>
 }

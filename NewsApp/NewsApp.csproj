@@ -224,11 +224,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\News\Article.cshtml" />
-    <Content Include="Views\News\Add.cshtml" />
-    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\AddEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

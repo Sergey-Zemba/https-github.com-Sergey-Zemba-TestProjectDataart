@@ -34,22 +34,22 @@ namespace NewsApp.DAL.Repositories
             return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault();
         }
 
-        public Article Create(Article article)
+        public int Create(Article article)
         {
-            object[] parameters = { 0, article.Title, article.ShortDescription, article.Content, article.PicturePath, null, null, 1 };
-            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); ;
+            object[] parameters = { 0, article.Title, article.ShortDescription, article.Content, article.ImageName, null, null, 1 };
+            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).First().Id;
         }
 
         public Article Update(Article article)
         {
-            object[] parameters = { article.Id, article.Title, article.ShortDescription, article.Content, article.PicturePath, null, null, 2 };
-            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); ;
+            object[] parameters = { article.Id, article.Title, article.ShortDescription, article.Content, article.ImageName, null, null, 2 };
+            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); 
         }
 
         public Article Delete(int id)
         {
             object[] parameters = { id, null, null, null, null, null, null, 3 };
-            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); ;
+            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); 
         }
     }
 }

@@ -11,7 +11,7 @@ namespace NewsApp.DAL.Interfaces
     {
         IEnumerable<T> GetItems(int page, out int numberOfArticles);
         T GetItem(int id);
-        Article Create(T item);
+        int Create(T item);
         Article Update(T item);
         Article Delete(int id);
     }

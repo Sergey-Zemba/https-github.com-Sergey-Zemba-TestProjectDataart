@@ -12,7 +12,7 @@ namespace NewsApp.BLL.DTO
         public string Title { get; set; }
         public string ShortDescription { get; set; }
         public string Content { get; set; }
-        public string PicturePath { get; set; }
+        public string ImageName { get; set; }
         public string CreationDate { get; set; }
     }
 }

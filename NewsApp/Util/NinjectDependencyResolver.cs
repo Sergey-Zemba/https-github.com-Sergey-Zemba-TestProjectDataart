@@ -32,6 +32,7 @@ namespace NewsApp.Util
         private void AddBindings()
         {
             kernel.Bind<INewsService>().To<NewsService>();
+            kernel.Bind<IImageService>().To<ImageService>();
         }
     }
 }

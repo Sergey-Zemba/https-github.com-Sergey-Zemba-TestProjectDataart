@@ -14,10 +14,12 @@ namespace NewsApp.Controllers
     public class NewsController : Controller
     {
         private INewsService newsService;
+        private IImageService imageService;
 
-        public NewsController(INewsService newsService)
+        public NewsController(INewsService newsService, IImageService imageService)
         {
             this.newsService = newsService;
+            this.imageService = imageService;
         }
 
         [HttpGet]
@@ -49,21 +51,29 @@ namespace NewsApp.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            return View("~/Views/News/AddEdit.cshtml");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(ArticleViewModel model)
+        public ActionResult Save(ArticleViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && (model.ImageName != null || model.Image != null))
             {
+                model.ImageName = imageService.SaveImage(model.Image.InputStream, model.Image.FileName, Server.MapPath("~/Content/Images/")); ;
                 Mapper.Initialize(cfg => cfg.CreateMap<ArticleViewModel, ArticleDTO>());
                 ArticleDTO articleDto = Mapper.Map<ArticleViewModel, ArticleDTO>(model);
-                newsService.CreateArticle(articleDto);
+                if (model.Id == 0)
+                {
+                    newsService.CreateArticle(articleDto);
+                }
+                else
+                {
+                    newsService.UpdateArticle(articleDto);
+                }
                 return RedirectToAction("Index", "Home");
             }
-            return View(model);
+            return View("~/Views/News/AddEdit.cshtml", model);
         }
 
         [HttpGet]
@@ -72,22 +82,9 @@ namespace NewsApp.Controllers
             ArticleDTO articleDto = newsService.GetArticle(id);
             Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, ArticleViewModel>());
             ArticleViewModel articleView = Mapper.Map<ArticleDTO, ArticleViewModel>(articleDto);
-            return View(articleView);
+            return View("~/Views/News/AddEdit.cshtml", articleView);
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(ArticleViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                Mapper.Initialize(cfg => cfg.CreateMap<ArticleViewModel, ArticleDTO>());
-                ArticleDTO articleDto = Mapper.Map<ArticleViewModel, ArticleDTO>(model);
-                newsService.UpdateArticle(articleDto);
-                return RedirectToAction("Index", "Home");
-            }
-            return View(model);
-        }
+        
 
         [HttpGet]
         public void Delete(int id)

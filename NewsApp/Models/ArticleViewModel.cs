@@ -22,10 +22,11 @@ namespace NewsApp.Models
         [Display(Name = "Content")]
         public string Content { get; set; }
 
-        [Required(ErrorMessage = "A picture path is required")]
-        [Display(Name = "Picture Path")]
+        //[Required(ErrorMessage = "A picture path is required")]
+        //[Display(Name = "Picture Path")]
+        public HttpPostedFileBase Image { get; set; }
 
-        public string PicturePath { get; set; }
+        public string ImageName { get; set; }
 
         public string CreationDate { get; set; }
     }

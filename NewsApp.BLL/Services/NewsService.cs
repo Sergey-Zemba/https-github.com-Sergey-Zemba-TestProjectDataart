@@ -33,11 +33,11 @@ namespace NewsApp.BLL.Services
             return Mapper.Map<Article, ArticleDTO>(article);
         }
 
-        public void CreateArticle(ArticleDTO articleDto)
+        public int CreateArticle(ArticleDTO articleDto)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, Article>());
             Article article = Mapper.Map<ArticleDTO, Article>(articleDto);
-            Database.Articles.Create(article);
+            return Database.Articles.Create(article);
         }
 
         public void UpdateArticle(ArticleDTO articleDto)

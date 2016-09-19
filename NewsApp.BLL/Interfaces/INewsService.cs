@@ -12,7 +12,7 @@ namespace NewsApp.BLL.Interfaces
     {
         IEnumerable<ArticleDTO> GetArticles(int page, out int numberOfPages);
         ArticleDTO GetArticle(int id);
-        void CreateArticle(ArticleDTO articleDto);
+        int CreateArticle(ArticleDTO articleDto);
         void UpdateArticle(ArticleDTO articleDto);
         void DeleteArticle(int id);
 
