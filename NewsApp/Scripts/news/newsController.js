@@ -1,6 +1,5 @@
 ﻿angular.module("newsApp").controller("newsController",
     function ($scope, $http) {
-
         $scope.news = {};
         $scope.currentPage = 1;
         $scope.totalItems = {};
@@ -10,6 +9,7 @@
             $scope.news = {
                 articles: data.articles
             };
+            $scope.isAuthenticated = data.isAuthenticated;
             $(document).scrollTop(0);
         };
         $scope.getArticles = function (page, callback) {

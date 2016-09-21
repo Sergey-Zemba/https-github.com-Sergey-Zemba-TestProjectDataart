@@ -33,6 +33,7 @@ namespace NewsApp.Util
         {
             kernel.Bind<INewsService>().To<NewsService>();
             kernel.Bind<IImageService>().To<ImageService>();
+            kernel.Bind<IUserService>().To<UserService>();
         }
     }
 }

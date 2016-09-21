@@ -6,7 +6,7 @@ using System.Web;
 
 namespace NewsApp.Models
 {
-    public class ArticleViewModel
+    public class ArticleViewModel : IValidatableObject
     {
         public int Id { get; set; }
 
@@ -22,12 +22,16 @@ namespace NewsApp.Models
         [Display(Name = "Content")]
         public string Content { get; set; }
 
-        //[Required(ErrorMessage = "A picture path is required")]
-        //[Display(Name = "Picture Path")]
         public HttpPostedFileBase Image { get; set; }
 
         public string ImageName { get; set; }
 
         public string CreationDate { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (ImageName == null && Image == null)
+                yield return new ValidationResult("You have to attach an image");
+        }
     }
 }

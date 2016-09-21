@@ -4,10 +4,10 @@
 
 <div ng-app="newsApp">
     <div id="content" ng-controller="newsController">
-        <div id="menu" class="col-md-3">
+        <div id="menu" class="col-md-3" ng-if="isAuthenticated===true">
             <a href="/news/add" class="btn btn-info">Add new article</a>
         </div>
-        <div id="articles" class="col-md-7">
+        <div id="articles" class="col-md-7" ng-class="isAuthenticated===false ? 'col-md-offset-3' : ''">
 
 
             <div class="articleItem" ng-repeat="article in news.articles">
@@ -17,7 +17,7 @@
                 <div class="col-md-9">
                     <div class="col-md-12 control">
                         <div class="articleDate col-md-8">{{article.CreationDate}}</div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" ng-if="isAuthenticated===true">
                             <a href="/news/edit/{{article.Id}}" class="btn btn-sm btn-info">Edit</a>
                             <a href ng-click="delete(article.Id)" class="btn btn-sm btn-info">Delete</a>
                         </div>

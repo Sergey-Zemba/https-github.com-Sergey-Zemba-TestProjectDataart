@@ -9,10 +9,11 @@ namespace NewsApp.DAL.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        IEnumerable<T> GetItems(int page, out int numberOfArticles);
+        IEnumerable<T> GetItems(int page, out int numberOfItems);
         T GetItem(int id);
+        T GetItem(T itemModel);
         int Create(T item);
-        Article Update(T item);
-        Article Delete(int id);
+        int Update(T item);
+        int Delete(int id);
     }
 }

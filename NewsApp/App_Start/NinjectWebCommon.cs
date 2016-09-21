@@ -1,8 +1,14 @@
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
 using NewsApp.BLL.Infrastructure;
+using NewsApp.BLL.Interfaces;
 using Ninject.Modules;
+using Owin;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NewsApp.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NewsApp.App_Start.NinjectWebCommon), "Stop")]
+[assembly: OwinStartup(typeof(NewsApp.App_Start.NinjectWebCommon))]
 
 namespace NewsApp.App_Start
 {
@@ -27,7 +33,16 @@ namespace NewsApp.App_Start
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
+        public static void Configuration(IAppBuilder app)
+        {
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                LoginPath = new PathString("/Account/Login"),
+            });
+        }
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -66,6 +81,8 @@ namespace NewsApp.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             System.Web.Mvc.DependencyResolver.SetResolver(new NewsApp.Util.NinjectDependencyResolver(kernel));
+
+
         }        
     }
 }

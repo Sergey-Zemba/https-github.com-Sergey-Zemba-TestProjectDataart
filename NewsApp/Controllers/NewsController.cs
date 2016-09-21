@@ -33,7 +33,8 @@ namespace NewsApp.Controllers
             var result = new
             {
                 articles = articleViews,
-                articlesNum = numberOfArticles
+                articlesNum = numberOfArticles,
+                isAuthenticated = HttpContext.User.Identity.IsAuthenticated
             };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -51,7 +52,24 @@ namespace NewsApp.Controllers
         [HttpGet]
         public ActionResult Add()
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Account/NoPermission.cshtml");
+            }
             return View("~/Views/News/AddEdit.cshtml");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Account/NoPermission.cshtml");
+            }
+            ArticleDTO articleDto = newsService.GetArticle(id);
+            Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, ArticleViewModel>());
+            ArticleViewModel articleView = Mapper.Map<ArticleDTO, ArticleViewModel>(articleDto);
+            return View("~/Views/News/AddEdit.cshtml", articleView);
         }
 
         [HttpPost]
@@ -60,7 +78,7 @@ namespace NewsApp.Controllers
         {
             if (ModelState.IsValid && (model.ImageName != null || model.Image != null))
             {
-                model.ImageName = imageService.SaveImage(model.Image.InputStream, model.Image.FileName, Server.MapPath("~/Content/Images/")); ;
+                model.ImageName = model.Image != null ? imageService.SaveImage(model.Image.InputStream, model.Image.FileName, Server.MapPath("~/Content/Images/")) : model.ImageName;
                 Mapper.Initialize(cfg => cfg.CreateMap<ArticleViewModel, ArticleDTO>());
                 ArticleDTO articleDto = Mapper.Map<ArticleViewModel, ArticleDTO>(model);
                 if (model.Id == 0)
@@ -77,19 +95,14 @@ namespace NewsApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Delete(int id)
         {
-            ArticleDTO articleDto = newsService.GetArticle(id);
-            Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, ArticleViewModel>());
-            ArticleViewModel articleView = Mapper.Map<ArticleDTO, ArticleViewModel>(articleDto);
-            return View("~/Views/News/AddEdit.cshtml", articleView);
-        }
-        
-
-        [HttpGet]
-        public void Delete(int id)
-        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("~/Views/Account/NoPermission.cshtml");
+            }
             newsService.DeleteArticle(id);
+            return Json(id, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -18,11 +18,11 @@ namespace NewsApp.DAL.Repositories
             this.database = database;
         }
 
-        public IEnumerable<Article> GetItems(int page, out int numberOfArticles)
+        public IEnumerable<Article> GetItems(int page, out int numberOfItems)
         {
             using (DbCommand sqlCmd = database.GetSqlStringCommand("SELECT COUNT(*) FROM article"))
             {
-                numberOfArticles = Int32.Parse(database.ExecuteScalar(sqlCmd).ToString());
+                numberOfItems = Int32.Parse(database.ExecuteScalar(sqlCmd).ToString());
             }
             object[] parameters = { 0, null, null, null, null, null, page, 4 };
             return database.ExecuteSprocAccessor<Article>("article_crud", parameters);
@@ -34,22 +34,27 @@ namespace NewsApp.DAL.Repositories
             return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault();
         }
 
+        public Article GetItem(Article articleModel)
+        {
+            return new Article();
+        }
+
         public int Create(Article article)
         {
             object[] parameters = { 0, article.Title, article.ShortDescription, article.Content, article.ImageName, null, null, 1 };
             return database.ExecuteSprocAccessor<Article>("article_crud", parameters).First().Id;
         }
 
-        public Article Update(Article article)
+        public int Update(Article article)
         {
             object[] parameters = { article.Id, article.Title, article.ShortDescription, article.Content, article.ImageName, null, null, 2 };
-            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); 
+            return database.ExecuteNonQuery("article_crud", parameters);
         }
 
-        public Article Delete(int id)
+        public int Delete(int id)
         {
             object[] parameters = { id, null, null, null, null, null, null, 3 };
-            return database.ExecuteSprocAccessor<Article>("article_crud", parameters).FirstOrDefault(); 
+            return database.ExecuteNonQuery("article_crud", parameters);
         }
     }
 }
