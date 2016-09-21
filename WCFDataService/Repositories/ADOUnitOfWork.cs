@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using Microsoft.Practices.EnterpriseLibrary.Data;
-using NewsApp.DAL.Entities;
-using NewsApp.DAL.Interfaces;
+using WCFDataService.Entities;
+using WCFDataService.Interfaces;
 
-namespace NewsApp.DAL.Repositories
+namespace WCFDataService.Repositories
 {
     public class ADOUnitOfWork : IUnitOfWork
     {
@@ -32,6 +31,6 @@ namespace NewsApp.DAL.Repositories
                 return articleRepository;
             }
         }
-        
+
     }
 }

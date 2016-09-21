@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NewsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1539/NewsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1539/NewsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1539/NewsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFDataService.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INewsService_GetArticles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticles" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetArticles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_GetArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_CreateArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_CreateArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_UpdateArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_UpdateArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArticleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_DeleteArticle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArticle" />
+  </wsdl:message>
+  <wsdl:message name="INewsService_DeleteArticle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArticleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INewsService">
+    <wsdl:operation name="GetArticles">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/GetArticles" message="tns:INewsService_GetArticles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/GetArticlesResponse" message="tns:INewsService_GetArticles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/GetArticle" message="tns:INewsService_GetArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/GetArticleResponse" message="tns:INewsService_GetArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/CreateArticle" message="tns:INewsService_CreateArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/CreateArticleResponse" message="tns:INewsService_CreateArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/UpdateArticle" message="tns:INewsService_UpdateArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/UpdateArticleResponse" message="tns:INewsService_UpdateArticle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArticle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INewsService/DeleteArticle" message="tns:INewsService_DeleteArticle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INewsService/DeleteArticleResponse" message="tns:INewsService_DeleteArticle_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INewsService" type="tns:INewsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetArticles">
+      <soap:operation soapAction="http://tempuri.org/INewsService/GetArticles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsService/GetArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsService/CreateArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsService/UpdateArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArticle">
+      <soap:operation soapAction="http://tempuri.org/INewsService/DeleteArticle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewsService">
+    <wsdl:port name="BasicHttpBinding_INewsService" binding="tns:BasicHttpBinding_INewsService">
+      <soap:address location="http://localhost:1539/NewsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

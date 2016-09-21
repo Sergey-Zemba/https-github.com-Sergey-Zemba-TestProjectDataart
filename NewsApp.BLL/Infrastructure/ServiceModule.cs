@@ -22,7 +22,6 @@ namespace NewsApp.BLL.Infrastructure
 
         public override void Load()
         {
-            Bind<IUnitOfWork>().To<ADOUnitOfWork>().WithConstructorArgument(connectionString);
             Bind<IIdentityUnitOfWork>().To<IdentityUnitOfWork>().WithConstructorArgument(connectionString);
         }
     }

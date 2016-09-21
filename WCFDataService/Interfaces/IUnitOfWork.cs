@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NewsApp.DAL.Entities;
-using NewsApp.DAL.Identity;
+using WCFDataService.Entities;
 
-namespace NewsApp.DAL.Interfaces
+namespace WCFDataService.Interfaces
 {
     public interface IUnitOfWork
     {

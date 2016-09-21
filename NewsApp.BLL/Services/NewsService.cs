@@ -5,51 +5,54 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using NewsApp.BLL.DTO;
-using NewsApp.BLL.Interfaces;
-using NewsApp.DAL.Entities;
+using NewsApp.BLL.ServiceReference1;
 using NewsApp.DAL.Interfaces;
+using INewsService = NewsApp.BLL.Interfaces.INewsService;
 
 namespace NewsApp.BLL.Services
 {
     public class NewsService : INewsService
     {
-        public IUnitOfWork Database { get; set; }
-
-        public NewsService(IUnitOfWork uow)
+        private NewsServiceClient client;
+        public NewsService()
         {
-            Database = uow;
+            client = new NewsServiceClient();
         }
         public IEnumerable<ArticleDTO> GetArticles(int page, out int numberOfArticles)
         {
-            IEnumerable<Article> articles = Database.Articles.GetItems(page, out numberOfArticles);
+            IEnumerable<Article> articlesFromSevice = client.GetArticles(page, out numberOfArticles).ToList();
             Mapper.Initialize(cfg => cfg.CreateMap<Article, ArticleDTO>());
-            return Mapper.Map<IEnumerable<Article>, IEnumerable<ArticleDTO>>(articles);
+            return Mapper.Map<IEnumerable<Article>, IEnumerable<ArticleDTO>>(articlesFromSevice);
         }
 
         public ArticleDTO GetArticle(int id)
         {
-            Article article = Database.Articles.GetItem(id);
+            Article articleFromService = client.GetArticle(id);
             Mapper.Initialize(cfg => cfg.CreateMap<Article, ArticleDTO>());
-            return Mapper.Map<Article, ArticleDTO>(article);
+            return Mapper.Map<Article, ArticleDTO>(articleFromService);
         }
 
-        public int CreateArticle(ArticleDTO articleDto)
+        public ArticleDTO CreateArticle(ArticleDTO articleDto)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, Article>());
-            Article article = Mapper.Map<ArticleDTO, Article>(articleDto);
-            return Database.Articles.Create(article);
+            Article articleForService = Mapper.Map<ArticleDTO, Article>(articleDto);
+            Article articleFromService = client.CreateArticle(articleForService);
+            Mapper.Initialize(cfg => cfg.CreateMap<Article, ArticleDTO>());
+            return Mapper.Map<Article, ArticleDTO>(articleFromService);
         }
 
-        public void UpdateArticle(ArticleDTO articleDto)
+        public ArticleDTO UpdateArticle(ArticleDTO articleDto)
         {
             Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, Article>());
-            Article article = Mapper.Map<ArticleDTO, Article>(articleDto);
-            Database.Articles.Update(article);
+            Article articleForService = Mapper.Map<ArticleDTO, Article>(articleDto);
+            Article articleFromService = client.UpdateArticle(articleForService);
+            Mapper.Initialize(cfg => cfg.CreateMap<Article, ArticleDTO>());
+            return Mapper.Map<Article, ArticleDTO>(articleFromService);
         }
 
-        public void DeleteArticle(int id)
+        public int DeleteArticle(int id)
         {
-            Database.Articles.Delete(id);
+            return client.DeleteArticle(id);
         }
     }
 }
