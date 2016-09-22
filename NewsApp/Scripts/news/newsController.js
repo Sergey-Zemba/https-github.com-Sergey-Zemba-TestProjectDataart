@@ -1,7 +1,11 @@
 ﻿angular.module("newsApp").controller("newsController",
-    function ($scope, $http) {
+    function ($scope, $http, $cookies) {
         $scope.news = {};
         $scope.currentPage = 1;
+        //if ($cookies.get("currentPage")) {
+        //    $scope.currentPage = parseInt($cookies.get("currentPage"));
+        //    $cookies.remove("currentPage");
+        //}
         $scope.totalItems = {};
         $scope.maxSize = 5;
         $scope.setLane = function (data) {
