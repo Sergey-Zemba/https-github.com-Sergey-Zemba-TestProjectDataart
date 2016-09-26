@@ -12,7 +12,7 @@
 
             <div class="articleItem" ng-repeat="article in news.articles">
                 <div class="col-md-3">
-                    <a data-ng-href="@Url.Action("article", "news")/{{article.Id}}"><img src="/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}" /></a>
+                    <a data-ng-href="@Url.Action("article", "news")/{{article.Id}}"><img src="~/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}" /></a>
                 </div>
                 <div class="col-md-9">
                     <div class="col-md-12 control">
