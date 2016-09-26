@@ -17,6 +17,9 @@
             $(document).scrollTop(0);
         };
         $scope.serverPath = document.location.pathname;
+        if (!$scope.serverPath.endsWith("/")) {
+            $scope.serverPath += "/";
+        }
         $scope.getArticles = function (page, callback) {
             $http.get($scope.serverPath + 'news/getarticles/' + page).success(function (data) {
                 callback(data);
