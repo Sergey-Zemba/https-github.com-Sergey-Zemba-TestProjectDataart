@@ -8,6 +8,7 @@
         //}
         $scope.totalItems = {};
         $scope.maxSize = 5;
+        $scope.getArticlesUrl = {};
         $scope.setLane = function (data) {
             $scope.totalItems = data.articlesNum;
             $scope.news = {
@@ -21,12 +22,12 @@
             $scope.serverPath += "/";
         }
         $scope.getArticles = function (page, callback) {
-            $http.get($scope.serverPath + 'news/getarticles/' + page).success(function (data) {
+            $http.get(getArticlesUrl + "/" + page).success(function (data) {
                 callback(data);
             });
         }
-        $scope.delete = function(id) {
-            $http.get($scope.serverPath + 'news/delete/' + id).success(function (data) {
+        $scope.delete = function (id) {
+            $http.get(deleteUrl + '/' + id).success(function (data) {
                 $scope.getArticles($scope.currentPage, $scope.setLane);
             });
         }

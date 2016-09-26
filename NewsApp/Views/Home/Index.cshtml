@@ -5,25 +5,25 @@
 <div ng-app="newsApp">
     <div id="content" ng-controller="newsController">
         <div id="menu" class="col-md-3" ng-if="isAuthenticated===true">
-            <a href="/news/add" class="btn btn-info">Add new article</a>
+            @Html.ActionLink("Add new article", "add", "news", new { }, new { @class = "btn btn-info" })
         </div>
         <div id="articles" class="col-md-7" ng-class="isAuthenticated===false ? 'col-md-offset-3' : ''">
 
 
             <div class="articleItem" ng-repeat="article in news.articles">
                 <div class="col-md-3">
-                    <a href="/news/article/{{article.Id}}"><img src="/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}" /></a>
+                    <a data-ng-href="@Url.Action("article", "news")/{{article.Id}}"><img src="/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}" /></a>
                 </div>
                 <div class="col-md-9">
                     <div class="col-md-12 control">
                         <div class="articleDate col-md-8">{{article.CreationDate}}</div>
                         <div class="col-md-4" ng-if="isAuthenticated===true">
-                            <a href="/news/edit/{{article.Id}}" class="btn btn-sm btn-info">Edit</a>
+                            <a data-ng-href="@Url.Action("edit", "news")/{{article.Id}}" class="btn btn-sm btn-info">Edit</a>
                             <a href ng-click="delete(article.Id)" class="btn btn-sm btn-info">Delete</a>
                         </div>
                     </div>
                     <div class="articleTitle col-md-12">
-                        <strong><a href="/news/article/{{article.Id}}">{{article.Title}}</a></strong>
+                        <strong><a data-ng-href="@Url.Action("article", "news")/{{article.Id}}">{{article.Title}}</a></strong>
                     </div>
                     <div class="articleDescription col-md-12">{{article.ShortDescription}}</div>
                 </div>
@@ -42,6 +42,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
+    <script>
+        var getArticlesUrl = "@Url.Action("getarticles", "news")";
+        var deleteUrl = "@Url.Action("delete", "news")";
+    </script>
 }
 @section css{
     <link href="~/Content/index.css" rel="stylesheet" />
