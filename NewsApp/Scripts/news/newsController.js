@@ -17,10 +17,6 @@
             $scope.isAuthenticated = data.isAuthenticated;
             $(document).scrollTop(0);
         };
-        $scope.serverPath = document.location.pathname;
-        if (!$scope.serverPath.endsWith("/")) {
-            $scope.serverPath += "/";
-        }
         $scope.getArticles = function (page, callback) {
             $http.get(getArticlesUrl + "/" + page).success(function (data) {
                 callback(data);
