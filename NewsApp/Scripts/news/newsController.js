@@ -16,13 +16,14 @@
             $scope.isAuthenticated = data.isAuthenticated;
             $(document).scrollTop(0);
         };
+        $scope.serverPath = document.location.pathname;
         $scope.getArticles = function (page, callback) {
-            $http.get('/news/getarticles/' + page).success(function (data) {
+            $http.get($scope.serverPath + 'news/getarticles/' + page).success(function (data) {
                 callback(data);
             });
         }
         $scope.delete = function(id) {
-            $http.get('/news/delete/' + id).success(function (data) {
+            $http.get($scope.serverPath + 'news/delete/' + id).success(function (data) {
                 $scope.getArticles($scope.currentPage, $scope.setLane);
             });
         }
