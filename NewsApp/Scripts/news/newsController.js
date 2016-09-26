@@ -21,7 +21,7 @@
             $scope.serverPath += "/";
         }
         $scope.getArticles = function (page, callback) {
-            $http.get(page).success(function (data) {
+            $http.get($scope.serverPath + 'news/getarticles/' + page).success(function (data) {
                 callback(data);
             });
         }
