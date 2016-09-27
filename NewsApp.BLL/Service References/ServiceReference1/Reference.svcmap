@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e1f02ee9-6970-47a4-8af4-24a3f40bcb13" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d17bd957-7389-47dd-a4cf-54a9409ac108" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:1539/NewsService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/WCFDataSevice/NewsService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NewsService.xsd" MetadataType="Schema" ID="1bdff95d-f4ce-4a73-8609-2b0b84eb97c7" SourceId="1" SourceUrl="http://localhost:1539/NewsService.svc?xsd=xsd2" />
-    <MetadataFile FileName="NewsService1.xsd" MetadataType="Schema" ID="8983f5fe-788d-48f7-a7b1-b9ac8d7e7520" SourceId="1" SourceUrl="http://localhost:1539/NewsService.svc?xsd=xsd1" />
-    <MetadataFile FileName="NewsService.wsdl" MetadataType="Wsdl" ID="3ea07c47-9e95-4b7b-9f08-a79c0b25c8aa" SourceId="1" SourceUrl="http://localhost:1539/NewsService.svc?wsdl" />
-    <MetadataFile FileName="NewsService.disco" MetadataType="Disco" ID="63f6346c-c2ae-4a48-b197-438c96118cd3" SourceId="1" SourceUrl="http://localhost:1539/NewsService.svc?disco" />
-    <MetadataFile FileName="NewsService2.xsd" MetadataType="Schema" ID="ed7f0f7a-43ff-4ce4-a445-3494f8aeddd0" SourceId="1" SourceUrl="http://localhost:1539/NewsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsService.xsd" MetadataType="Schema" ID="69e25eff-6bc4-4146-af3b-9ee5085850d0" SourceId="1" SourceUrl="http://localhost/WCFDataSevice/NewsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="NewsService1.xsd" MetadataType="Schema" ID="64b21b34-c28e-4db1-9f8a-a4e559415794" SourceId="1" SourceUrl="http://localhost/WCFDataSevice/NewsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="NewsService2.xsd" MetadataType="Schema" ID="9f2694b1-d188-42af-888e-fb13aa0ebb98" SourceId="1" SourceUrl="http://localhost/WCFDataSevice/NewsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="NewsService.wsdl" MetadataType="Wsdl" ID="b9487655-79b3-45e6-9de7-5caeccc9b4ff" SourceId="1" SourceUrl="http://localhost/WCFDataSevice/NewsService.svc?wsdl" />
+    <MetadataFile FileName="NewsService.disco" MetadataType="Disco" ID="c920a691-eba4-424e-b81e-c064cf2195f2" SourceId="1" SourceUrl="http://localhost/WCFDataSevice/NewsService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
