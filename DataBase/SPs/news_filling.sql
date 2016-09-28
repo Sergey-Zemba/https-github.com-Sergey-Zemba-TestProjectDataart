@@ -1,9 +1,7 @@
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[news_filling]') AND type in (N'P', N'PC'))
 AND EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='News')
 DROP PROCEDURE news_filling;
-
 CREATE PROCEDURE news_filling AS
-
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
