@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
 	<PropertyGroup>
-		<CreateScript>..\DataBase\Tables\create_table.sql</CreateScript>
-		<FillScript>..\DataBase\SPs\news_filling.sql</FillScript>
+		<CreateTableScript>..\DataBase\Tables\create_table.sql</CreateTableScript>
+		<CreateProcedureScript>..\DataBase\SPs\create_proc.sql</CreateProcedureScript>
+		<FillTableScript>..\DataBase\SPs\filling_table.sql</FillTableScript>
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
 	</PropertyGroup>
 	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="CreateTableTask"/>
+	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="CreateProcedureTask"/>
 	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="FillTableTask"/>
 	<Target Name="Build">
 		<MSBuild Projects="..\NewsApp.sln"/>
 	</Target>
 	<Target Name="CreateTable">
-		<CreateTableTask ConnectionString="$(ConnectionString)" CreateScript="$(CreateScript)" ContinueOnError="false" />
+		<CreateTableTask ConnectionString="$(ConnectionString)" CreateTableScript="$(CreateTableScript)" ContinueOnError="false" />
+	</Target>
+	<Target Name="CreateProcedure">
+		<CreateProcedureTask ConnectionString="$(ConnectionString)" CreateProcedureScript="$(CreateProcedureScript)" ContinueOnError="false" />
 	</Target>
 	<Target Name="FillTable">
-		<FillTableTask ConnectionString="$(ConnectionString)" FillScript="$(FillScript)" ContinueOnError="false" />
+		<FillTableTask ConnectionString="$(ConnectionString)" FillTableScript="$(FillTableScript)" ContinueOnError="false" />
 	</Target>
 </Project>

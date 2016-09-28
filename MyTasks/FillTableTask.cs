@@ -10,11 +10,11 @@ namespace MyTasks
     public class FillTableTask : Task
     {
         public string ConnectionString { get; set; }
-        public ITaskItem FillScript { get; set; }
+        public ITaskItem FillTableScript { get; set; }
 
         public override bool Execute()
         {
-            string sql = SqlExecutor.ReadFile(FillScript.ItemSpec);
+            string sql = SqlExecutor.ReadFile(FillTableScript.ItemSpec);
             bool result = SqlExecutor.ExecuteSql(sql, ConnectionString);
             if (!(result || BuildEngine.ContinueOnError))
             {
