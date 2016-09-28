@@ -25,5 +25,4 @@ GETDATE()
 SET @Cur = @Cur + 1;
 END
 END
-GO
 EXEC news_filling;
