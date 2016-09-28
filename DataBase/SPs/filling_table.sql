@@ -2,5 +2,5 @@ IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[fi
 AND EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='News')
 CREATE PROCEDURE [dbo].[filling_table] AS
 BEGIN
-EXEC news_filling;
+EXEC create_proc;
 END;
