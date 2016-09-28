@@ -7,7 +7,7 @@ using Microsoft.Build.Utilities;
 
 namespace MyTasks
 {
-    class FillTableTask : Task
+    public class FillTableTask : Task
     {
         public string ConnectionString { get; set; }
         public ITaskItem FillScript { get; set; }
