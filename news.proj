@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="CreateTable" ToolsVersion="14.0">
 	<PropertyGroup>
-		<BatchSql>DataBase\Tables\create_table.sql</BatchSql>
+		<PathToScript>DataBase\Tables\create_table.sql</PathToScript>
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
 	</PropertyGroup>
+	<UsingTask AssemblyFile="MyTasks\bin\Debug\MyTasks.dll" TaskName ="SqlTask"/>
 	<Target Name="CreateTable">
-		<MSBuild ConnectionString="$(ConnectionString)" Files="$(BatchSql)" ContinueOnError="false" />
+		<SqlTask ConnectionString="$(ConnectionString)" File="$(PathToScript)" ContinueOnError="false" />
 	</Target>
 </Project>
