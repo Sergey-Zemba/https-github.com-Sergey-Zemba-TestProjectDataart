@@ -1,8 +1,8 @@
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[news_filling]') AND type in (N'P', N'PC'))
 AND EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='News')
-
+DROP PROCEDURE [dbo].[news_filling];
+GO
 CREATE PROCEDURE [dbo].[news_filling] AS
-
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
@@ -24,4 +24,5 @@ GETDATE()
 SET @Cur = @Cur + 1;
 END
 END;
+GO
 EXEC news_filling;
