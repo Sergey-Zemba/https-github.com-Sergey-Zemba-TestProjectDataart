@@ -6,7 +6,7 @@
 	</PropertyGroup>
 	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="SqlTask"/>
 	<Target Name="Build">
-		<MSBuild Projects="..\NewsApp.sln">
+		<MSBuild Projects="..\NewsApp.sln"/>
 	</Target>
 	<Target Name="CreateTable">
 		<SqlTask ConnectionString="$(ConnectionString)" PathToScript="$(PathToScript)" ContinueOnError="false" />
