@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="CreateTable" ToolsVersion="4.0">
+	<PropertyGroup>
+		<BatchSql>DataBase\Tables\create_table.sql</BatchSql>
+		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
+	</PropertyGroup>
+	<Target Name="CreateTable">
+		<ExecuteDDL ConnectionString="$(ConnectionString)" Files="$(BatchSql)" ContinueOnError="false" />
+	</Target>
+</Project>
