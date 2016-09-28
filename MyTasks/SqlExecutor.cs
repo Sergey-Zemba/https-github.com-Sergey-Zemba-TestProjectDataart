@@ -4,32 +4,18 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Microsoft.Build.Framework;
-using Microsoft.Build.Utilities;
+using System.Threading.Tasks;
 
 namespace MyTasks
 {
-    public class SqlTask : Task
+    static class SqlExecutor
     {
-        public string ConnectionString { get; set; }
-        public ITaskItem PathToScript { get; set; }
-
-        public override bool Execute()
-        {
-            bool result = ExecuteSql(ReadFile(PathToScript.ItemSpec));
-            if (!(result || BuildEngine.ContinueOnError))
-            {
-                result = false;
-            }
-            return result;
-        }
-
-        private bool ExecuteSql(string sql)
+        public static bool ExecuteSql(string sql, string connectionString)
         {
             bool result = false;
             if (!string.IsNullOrEmpty(sql))
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Connection.Open();
@@ -40,7 +26,7 @@ namespace MyTasks
             return result;
         }
 
-        private string ReadFile(string path)
+        public static string ReadFile(string path)
         {
             using (StreamReader reader = new StreamReader(path))
             {
