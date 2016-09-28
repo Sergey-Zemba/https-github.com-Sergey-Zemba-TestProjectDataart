@@ -5,6 +5,9 @@
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
 	</PropertyGroup>
 	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="SqlTask"/>
+	<Target Name="Build">
+		<MSBuild Projects="..\NewsApp.sln">
+	</Target>
 	<Target Name="CreateTable">
 		<SqlTask ConnectionString="$(ConnectionString)" PathToScript="$(PathToScript)" ContinueOnError="false" />
 	</Target>
