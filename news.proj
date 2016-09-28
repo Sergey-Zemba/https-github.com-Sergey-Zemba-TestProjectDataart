@@ -5,6 +5,6 @@
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
 	</PropertyGroup>
 	<Target Name="CreateTable">
-		<ExecuteDDL ConnectionString="$(ConnectionString)" Files="$(BatchSql)" ContinueOnError="false" />
+		<MSBuild ConnectionString="$(ConnectionString)" Files="$(BatchSql)" ContinueOnError="false" />
 	</Target>
 </Project>
