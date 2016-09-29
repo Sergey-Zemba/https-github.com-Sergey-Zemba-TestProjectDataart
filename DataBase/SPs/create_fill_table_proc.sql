@@ -1,4 +1,4 @@
--- IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[create_proc]') AND type in (N'P', N'PC'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[create_proc]') AND type in (N'P', N'PC'))
 CREATE PROCEDURE [dbo].[fill_table_proc] AS
 BEGIN
 DECLARE @Cur INT = 1;
