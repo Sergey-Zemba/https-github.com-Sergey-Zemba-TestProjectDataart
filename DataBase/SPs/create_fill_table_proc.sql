@@ -1,5 +1,6 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[create_proc]') AND type in (N'P', N'PC'))
-CREATE PROCEDURE [dbo].[fill_table_proc] AS
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'fill_table_proc') AND type in (N'P', N'PC'))
+BEGIN
+CREATE PROCEDURE fill_table_proc AS
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
@@ -19,5 +20,6 @@ VALUES(
 GETDATE()
 );
 SET @Cur = @Cur + 1;
+END
 END
 END;
