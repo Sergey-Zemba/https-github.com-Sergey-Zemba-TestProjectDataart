@@ -5,8 +5,7 @@
 		<FillTableScript>..\DataBase\SPs\table_filling.sql</FillTableScript>
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
 	</PropertyGroup>
-	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="CreateTableTask"/>
-	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="FillTableTask"/>
+	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="SqlTask"/>
 	<Target Name="Build">
 		<MSBuild Projects="..\NewsApp.sln"/>
 	</Target>
