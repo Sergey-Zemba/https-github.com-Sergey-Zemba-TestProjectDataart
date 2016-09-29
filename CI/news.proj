@@ -11,9 +11,9 @@
 		<MSBuild Projects="..\NewsApp.sln"/>
 	</Target>
 	<Target Name="CreateTable">
-		<CreateTableTask ConnectionString="$(ConnectionString)" CreateTableScript="$(CreateTableScript)" ContinueOnError="false" />
+		<SqlTask ConnectionString="$(ConnectionString)" SqlScript="$(CreateTableScript)" ContinueOnError="false" />
 	</Target>
 	<Target Name="FillTable">
-		<FillTableTask ConnectionString="$(ConnectionString)" FillTableScript="$(FillTableScript)" ContinueOnError="false" />
+		<SqlTask ConnectionString="$(ConnectionString)" SqlScript="$(FillTableScript)" ContinueOnError="false" />
 	</Target>
 </Project>

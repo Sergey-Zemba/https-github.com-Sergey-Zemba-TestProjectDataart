@@ -4,13 +4,23 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Build.Framework;
+using Microsoft.Build.Utilities;
 
 namespace MyTasks
 {
-    static class SqlExecutor
+    public class SqlTask : Task
     {
-        public static bool ExecuteSql(string sql, string connectionString)
+        public string ConnectionString { get; set; }
+        public ITaskItem SqlScript { get; set; }
+
+        public override bool Execute()
+        {
+            string sql = ReadFile(SqlScript.ItemSpec);
+            return ExecuteSql(sql, ConnectionString);
+        }
+
+        private static bool ExecuteSql(string sql, string connectionString)
         {
             bool result = false;
             if (!string.IsNullOrEmpty(sql))
@@ -26,7 +36,7 @@ namespace MyTasks
             return result;
         }
 
-        public static string ReadFile(string path)
+        private static string ReadFile(string path)
         {
             using (StreamReader reader = new StreamReader(path))
             {
