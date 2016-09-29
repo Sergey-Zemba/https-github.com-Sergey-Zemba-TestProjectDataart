@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
 	<PropertyGroup>
 		<CreateTableScript>..\DataBase\Tables\create_table.sql</CreateTableScript>
-		<CreateProcedureScript>..\DataBase\SPs\filling_proc.sql</CreateProcedureScript>
+		<CreateProcedureScript>..\DataBase\SPs\create_fill_table_proc.sql</CreateProcedureScript>
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
 	</PropertyGroup>
 	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="CreateTableTask"/>

@@ -1,6 +1,5 @@
 -- IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[create_proc]') AND type in (N'P', N'PC'))
--- AND EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='News')
-CREATE PROCEDURE [dbo].[create_proc] AS
+CREATE PROCEDURE [dbo].[fill_table_proc] AS
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
