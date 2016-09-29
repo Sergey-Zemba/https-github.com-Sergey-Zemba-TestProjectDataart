@@ -1,6 +1,6 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE id = OBJECT_ID(N'[dbo].[fill_table_proc]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='fill_table_proc')
 BEGIN
-CREATE PROCEDURE [dbo].[fill_table_proc] AS
+CREATE PROCEDURE fill_table_proc AS
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
