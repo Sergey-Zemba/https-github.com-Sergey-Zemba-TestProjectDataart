@@ -1,6 +1,7 @@
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='fill_table_proc')
+IF EXISTS (SELECT * FROM sysobjects WHERE id = object_id(N'[dbo].[fill_table_proc]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 BEGIN
-EXECUTE('CREATE PROCEDURE fill_table_proc AS
+EXECUTE ('DROP PROCEDURE [dbo].[fill_table_proc];
+CREATE PROCEDURE [dbo].[fill_table_proc] AS
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
@@ -14,13 +15,12 @@ CreationDate
 )
 VALUES(
 ''Title'' + CAST(@Cur AS NVARCHAR(10)),
-''ShortDescription'' + CAST(@Cur AS NVARCHAR(10)),
+''ShortDescriiption'' + CAST(@Cur AS NVARCHAR(10)),
 ''Content'' + CAST(@Cur AS NVARCHAR(10)),
 ''ImageName'' + CAST(@Cur AS NVARCHAR(10)),
 GETDATE()
 );
 SET @Cur = @Cur + 1;
 END
-END'
-)
+END;')
 END;
