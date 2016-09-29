@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateProcedureTask.cs" />
     <Compile Include="CreateTableTask.cs" />
     <Compile Include="FillTableTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
