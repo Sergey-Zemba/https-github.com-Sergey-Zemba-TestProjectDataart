@@ -1,5 +1,6 @@
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='fill_table_proc')
 BEGIN
+EXEC dbo.sp_executesql @statement = N'
 CREATE PROCEDURE fill_table_proc AS
 BEGIN
 DECLARE @Cur INT = 1;
