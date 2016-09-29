@@ -1,4 +1,4 @@
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'fill_table_proc') AND type in (N'P', N'PC'))
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE object_id = OBJECT_ID(N'fill_table_proc') AND type in (N'P', N'PC'))
 BEGIN
 CREATE PROCEDURE fill_table_proc AS
 BEGIN
