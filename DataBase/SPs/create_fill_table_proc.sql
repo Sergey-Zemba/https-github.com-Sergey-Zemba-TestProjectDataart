@@ -1,7 +1,7 @@
 IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'fill_table_proc') AND type IN ( N'P', N'PC' ))
 BEGIN
 EXECUTE ('DROP PROCEDURE fill_table_proc;
-CREATE PROCEDURE fill_table_proc] AS
+CREATE PROCEDURE fill_table_proc AS
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
