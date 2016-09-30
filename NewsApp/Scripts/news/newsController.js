@@ -1,5 +1,5 @@
 ﻿angular.module("newsApp").controller("newsController",
-    function ($scope, $http, $cookies, $window) {
+    function ($scope, $http, $cookies) {
         $scope.news = {};
         $scope.currentPage = 1;
         $scope.totalItems = {};
