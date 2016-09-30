@@ -12,18 +12,18 @@
 
             <div class="articleItem" ng-repeat="article in news.articles">
                 <div class="col-md-3">
-                    <a data-ng-href="@Url.Action("article", "news")/{{article.Id}}"><img src="~/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}" /></a>
+                    <a data-ng-href="@Url.Action("article", "news")/{{article.Id}}" ng-click="savePage()"><img src="~/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}" /></a>
                 </div>
                 <div class="col-md-9">
                     <div class="col-md-12 control">
                         <div class="articleDate col-md-8">{{article.CreationDate}}</div>
                         <div class="col-md-4" ng-if="isAuthenticated===true">
-                            <a data-ng-href="@Url.Action("edit", "news")/{{article.Id}}" class="btn btn-sm btn-info">Edit</a>
-                            <a href ng-click="delete(article.Id)" class="btn btn-sm btn-info">Delete</a>
+                            <a data-ng-href="@Url.Action("edit", "news")/{{article.Id}}" ng-click="savePage()" class="btn btn-sm btn-info">Edit</a>
+                            <button ng-click="delete(article.Id)" class="btn btn-sm btn-info">Delete</button>
                         </div>
                     </div>
                     <div class="articleTitle col-md-12">
-                        <strong><a data-ng-href="@Url.Action("article", "news")/{{article.Id}}">{{article.Title}}</a></strong>
+                        <strong><a data-ng-href="@Url.Action("article", "news")/{{article.Id}}" ng-click="savePage()">{{article.Title}}</a></strong>
                     </div>
                     <div class="articleDescription col-md-12">{{article.ShortDescription}}</div>
                 </div>
