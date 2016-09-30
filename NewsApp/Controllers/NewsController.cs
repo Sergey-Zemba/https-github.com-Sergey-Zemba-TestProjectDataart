@@ -36,7 +36,6 @@ namespace NewsApp.Controllers
                 articlesNum = numberOfArticles,
                 isAuthenticated = HttpContext.User.Identity.IsAuthenticated
             };
-            //HttpContext.Response.Cookies["currentPage"].Value = page.ToString();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
