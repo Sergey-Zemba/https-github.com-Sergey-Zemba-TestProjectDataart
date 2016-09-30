@@ -12,22 +12,6 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            @*<div class="navbar-header col-md-12">
-                <span class="col-md-10">@Html.ActionLink("News", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</span>
-
-                <span id="loginSection" class="col-md-2">
-                    @if (String.IsNullOrEmpty(Request.Cookies["username"].Value))
-                    {
-                        @Html.ActionLink("Login", "login", "account")
-                    }
-                    else
-                    {
-                        <span style="color: white;">You are logged in as @Request.Cookies["username"].Value, @Html.ActionLink("Logout", "Logout", "Account")</span>
-                    }
-
-                </span>
-            </div>*@
-            
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -35,9 +19,6 @@
                 @Html.ActionLink("News", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @*<ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("News", "Index", "Home")</li>
-                </ul>*@
                 <ul class="nav navbar-nav navbar-right">
                     @if (!User.Identity.IsAuthenticated)
                     {
