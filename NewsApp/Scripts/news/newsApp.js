@@ -1,1 +1,1 @@
-﻿angular.module("newsApp", ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ngCookies']);
+﻿var newsApp = angular.module("newsApp", ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ngCookies']);

@@ -1,5 +1,4 @@
-﻿angular.module("newsApp")
-    .service("newsService",
+﻿newsApp.service("newsService",
     [
         '$http', function ($http) {
             var getContent = function (url, page) {

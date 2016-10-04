@@ -1,4 +1,4 @@
-﻿angular.module("newsApp").controller("newsController", ['$scope', 'newsService', 'pageService', function ($scope, newsService, pageService) {
+﻿newsApp.controller("NewsController", ['$scope', 'newsService', 'pageService', function ($scope, newsService, pageService) {
     $scope.currentPage = 1;
     $scope.maxSize = 5;
     $scope.getArticles = function (page) {

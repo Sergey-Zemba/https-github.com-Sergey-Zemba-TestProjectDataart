@@ -1,4 +1,4 @@
-﻿angular.module("newsApp").service('pageService',
+﻿newsApp.service('pageService',
 [
     '$cookies', function ($cookies) {
         var getPage = function (page) {
