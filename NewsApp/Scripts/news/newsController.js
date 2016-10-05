@@ -22,5 +22,4 @@
     $scope.savePage = function () {
         pageService.savePage($scope.currentPage);
     }
-    $scope.getArticles($scope.currentPage);
 }]);

@@ -3,7 +3,7 @@
 }
 
 <div ng-app="newsApp">
-    <div id="content" ng-controller="NewsController">
+    <div id="content" ng-controller="NewsController" data-ng-init="getArticles(currentPage)">
         <div id="menu" class="col-md-3" ng-if="isAuthenticated===true">
             @Html.ActionLink("Add new article", "add", "news", new { }, new { @class = "btn btn-info" })
         </div>
