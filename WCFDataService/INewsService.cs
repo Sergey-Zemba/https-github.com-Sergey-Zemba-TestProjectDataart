@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using WCFDataService.Entities;
 
@@ -13,9 +14,11 @@ namespace WCFDataService
     public interface INewsService
     {
         [OperationContract]
+        [WebGet]
         IEnumerable<Article> GetArticles(int page, out int numberOfItems);
 
         [OperationContract]
+        [WebGet(UriTemplate = "articles/{id}")]
         Article GetArticle(int id);
 
         [OperationContract]
