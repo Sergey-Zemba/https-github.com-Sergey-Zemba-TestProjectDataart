@@ -14,11 +14,9 @@ namespace WCFDataService
     public interface INewsService
     {
         [OperationContract]
-        [WebGet]
         IEnumerable<Article> GetArticles(int page, out int numberOfItems);
 
         [OperationContract]
-        [WebGet(UriTemplate = "articles/{id}")]
         Article GetArticle(int id);
 
         [OperationContract]
