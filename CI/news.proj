@@ -7,7 +7,7 @@
 		<SqlServerRedistPath Condition="'$(SqlServerRedistPath)' == ''">$(MSBuildProgramFiles32)\Microsoft SQL Server\120\DAC\Bin</SqlServerRedistPath>
 	</PropertyGroup>
 	<ItemGroup>
-        <DBProj Include="..\Database">
+        <DBProj Include="Database">
             <DBName>NewsApp.Database</DBName>
             <DBRoot>NewsApp.Database</DBRoot> 
         </DBProj>
@@ -23,6 +23,6 @@
 		<SqlTask ConnectionString="$(ConnectionString)" SqlScript="$(FillTableScript)" ContinueOnError="false" />
 	</Target> 
     <Target Name="PublishDatabase">   
-        <Exec  Command="&quot;$(SqlServerRedistPath)\sqlpackage.exe&quot; /Action:Publish /sf:&quot;./%(DBProj.DBRoot)/bin/Debug/%(DBProj.DBName).dacpac&quot; /pr:&quot;./%(DBProj.DBRoot)/%(DBProj.DBName).NewsApp.Database.publish.xml&quot;" />
+        <Exec  Command="&quot;$(SqlServerRedistPath)\sqlpackage.exe&quot; /Action:Publish /sf:&quot;./%(DBProj.DBRoot)/bin/Debug/%(DBProj.DBName).dacpac&quot; /pr:&quot;../%(DBProj.DBName).NewsApp.Database.publish.xml&quot;" />
     </Target> 
 </Project>
