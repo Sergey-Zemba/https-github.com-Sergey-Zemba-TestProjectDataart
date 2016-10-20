@@ -4,7 +4,14 @@
 		<CreateTableScript>..\DataBase\Tables\create_table.sql</CreateTableScript>
 		<FillTableScript>..\DataBase\SPs\table_filling.sql</FillTableScript>
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
+		<SqlServerRedistPath Condition="'$(SqlServerRedistPath)' == ''">$(MSBuildProgramFiles32)\Microsoft SQL Server\120\DAC\Bin</SqlServerRedistPath>
 	</PropertyGroup>
+	<ItemGroup>
+        <DBProj Include="Database">
+            <DBName>NewsApp.Database</DBName>
+            <DBRoot>NewsApp.Database</DBRoot> 
+        </DBProj>
+    </ItemGroup>
 	<UsingTask AssemblyFile="..\MyTasks\bin\Debug\MyTasks.dll" TaskName ="SqlTask"/>
 	<Target Name="Build">
 		<MSBuild Projects="..\NewsApp.sln"/>
@@ -14,5 +21,8 @@
 	</Target>
 	<Target Name="FillTable">
 		<SqlTask ConnectionString="$(ConnectionString)" SqlScript="$(FillTableScript)" ContinueOnError="false" />
-	</Target>
+	</Target> 
+    <Target Name="PublishDatabase">   
+        <Exec  Command="&quot;$(SqlServerRedistPath)\sqlpackage.exe&quot; /Action:Publish /sf:&quot;./%(DBProj.DBRoot)/bin/Debug/%(DBProj.DBName).dacpac&quot; /pr:&quot;./%(DBProj.DBRoot)/%(DBProj.DBName).NewsApp.Database.publish.xml&quot;" />
+    </Target> 
 </Project>

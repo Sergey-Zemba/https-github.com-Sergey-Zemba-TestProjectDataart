@@ -87,4 +87,7 @@
     <Build Include="dbo\Stored Procedures\fill_table_proc.sql" />
     <Build Include="dbo\Tables\TestForTeamcity.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="NewsApp.Database.publish.xml" />
+  </ItemGroup>
 </Project>
