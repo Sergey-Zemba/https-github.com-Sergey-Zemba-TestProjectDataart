@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="NewsApp.Database.publish.xml" />
-    <None Include="dbo\Stored Procedures\TestScript.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Stored Procedures\TestScript.PostDeployment1.sql" />
   </ItemGroup>
 </Project>
