@@ -5,6 +5,7 @@
     [Content]          NVARCHAR (MAX) NOT NULL,
     [ImageName]        NVARCHAR (MAX) NOT NULL,
     [CreationDate]     DATETIME       NOT NULL,
+    [TestColumn] NVARCHAR(50) NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
