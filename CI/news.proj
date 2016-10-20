@@ -7,7 +7,7 @@
 		<SqlServerRedistPath Condition="'$(SqlServerRedistPath)' == ''">$(MSBuildProgramFiles32)\Microsoft SQL Server\120\DAC\Bin</SqlServerRedistPath>
 	</PropertyGroup>
 	<ItemGroup>
-        <DBProj Include="Database">
+        <DBProj Include="..\Database">
             <DBName>NewsApp.Database</DBName>
             <DBRoot>NewsApp.Database</DBRoot> 
         </DBProj>
