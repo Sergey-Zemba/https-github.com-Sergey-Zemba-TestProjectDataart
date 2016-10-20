@@ -85,7 +85,6 @@
     <Build Include="dbo\Stored Procedures\article_getArticle.sql" />
     <Build Include="Login1.sql" />
     <Build Include="dbo\Stored Procedures\fill_table_proc.sql" />
-    <Build Include="dbo\Tables\TestForTeamcity.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NewsApp.Database.publish.xml" />
