@@ -1,0 +1,2 @@
+﻿CREATE USER [UNIVERSE\szemba] FOR LOGIN [UNIVERSE\szemba];
+

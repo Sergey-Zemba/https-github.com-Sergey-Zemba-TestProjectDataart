@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTasks", "MyTasks\MyTasks.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestfulService", "WcfRestfulService\WcfRestfulService.csproj", "{DEA2D022-1FC8-470E-967C-1AADA2AEE300}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NewsApp.Database", "NewsApp.Database\NewsApp.Database.sqlproj", "{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,12 @@ Global
 		{DEA2D022-1FC8-470E-967C-1AADA2AEE300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEA2D022-1FC8-470E-967C-1AADA2AEE300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEA2D022-1FC8-470E-967C-1AADA2AEE300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
