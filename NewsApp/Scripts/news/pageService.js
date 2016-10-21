@@ -5,7 +5,7 @@
             var goToPage = parseInt($cookies.get("currentPage"));
             if (goToPage) {
                 page = goToPage;
-                $cookies.remove("currentPage");
+                $cookies.remove("currentPage", { path: '/' });
             }
             return page;
         };
