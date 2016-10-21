@@ -5,7 +5,7 @@
             var goToPage = parseInt($cookies.get("currentPage"));
             if (goToPage) {
                 page = goToPage;
-                $cookies.remove("currentPage", { path: '/' });
+                $cookies.remove("currentPage", { path: '/NewsApp' });
             }
             return page;
         };
