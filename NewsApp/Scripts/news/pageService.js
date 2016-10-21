@@ -6,6 +6,7 @@
             if (goToPage) {
                 page = goToPage;
                 $cookies.remove("currentPage", { path: '/NewsApp' });
+                $cookies.remove("currentPage", { path: '/' });
             }
             return page;
         };
