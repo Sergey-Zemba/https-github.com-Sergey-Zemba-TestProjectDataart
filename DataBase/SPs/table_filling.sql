@@ -16,10 +16,10 @@ ImageName,
 CreationDate
 )
 VALUES(
-''Title'' + CAST(@Cur AS NVARCHAR(10)),
-''ShortDescriiption'' + CAST(@Cur AS NVARCHAR(10)),
-''Content'' + CAST(@Cur AS NVARCHAR(10)),
-''ImageName'' + CAST(@Cur AS NVARCHAR(10)),
+'Title' + CAST(@Cur AS NVARCHAR(10)),
+'ShortDescriiption' + CAST(@Cur AS NVARCHAR(10)),
+'Content' + CAST(@Cur AS NVARCHAR(10)),
+'ImageName' + CAST(@Cur AS NVARCHAR(10)),
 GETDATE()
 );
 SET @Cur = @Cur + 1;
