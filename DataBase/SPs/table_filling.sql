@@ -1,4 +1,6 @@
-CREATE PROCEDURE fill_table_proc AS
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'fill_table_proc') AND type IN ( N'P', N'PC' ))
+EXECUTE ('DROP PROCEDURE fill_table_proc')
+EXECUTE ('CREATE PROCEDURE fill_table_proc AS
 BEGIN
 DECLARE @Cur INT = 1;
 WHILE(@Cur<=100)
@@ -19,9 +21,7 @@ GETDATE()
 );
 SET @Cur = @Cur + 1;
 END
-END
-IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'fill_table_proc') AND type IN ( N'P', N'PC' ))
-EXECUTE ('DROP PROCEDURE fill_table_proc')
+END')
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA ='dbo' AND TABLE_NAME = 'News')
 AND NOT EXISTS (SELECT 1 from News)
 BEGIN
