@@ -7,7 +7,7 @@ INSERT INTO News(
 Title,
 ShortDescription,
 Content,
-[Image],
+[ImageTitle],
 CreationDate
 )
 VALUES(
