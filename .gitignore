@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/NewsApp.Database/NewsApp.Database.jfm
