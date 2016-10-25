@@ -14,12 +14,18 @@ namespace NewsApp
         {
             List<string> layoutScripts = new List<string>();
             layoutScripts.Add("Scripts/modernizr-2.6.2.js");
-            layoutScripts.Add("Scripts/jquery-1.10.2.js");
-            layoutScripts.Add("Scripts/bootstrap.js");
-            layoutScripts.Add("Scripts/angular.min.js");
+            layoutScripts.Add("bower_components/jquery/dist/jquery.js");
+            layoutScripts.Add("bower_components/bootstrap/dist/js/bootstrap.js");
+            layoutScripts.Add("bower_components/angular/angular.js");
             bundles.Add<ScriptBundle>("LayoutScripts", layoutScripts);
             bundles.Add<ScriptBundle>("Scripts/news");
-            bundles.Add<StylesheetBundle>("LayoutStyles", new List<string>() {"Content/bootstrap.css", "Content/Site.css"});
+            List<string> angularTools = new List<string>();
+            angularTools.Add("bower_components/angular-animate/angular-animate.js");
+            angularTools.Add("bower_components/angular-sanitize/angular-sanitize.js");
+            angularTools.Add("bower_components/angular-cookies/angular-cookies.js");
+            angularTools.Add("bower_components/angular-bootstrap/ui-bootstrap-tpls.js");
+            bundles.Add<ScriptBundle>("AngularTools", angularTools);
+            bundles.Add<StylesheetBundle>("LayoutStyles", new List<string>() { "bower_components/bootstrap/dist/css/bootstrap.css", "Content/Site.css"});
             bundles.Add<StylesheetBundle>("IndexStyles", new List<string>() {"Content/index.css"});
         }
     }
