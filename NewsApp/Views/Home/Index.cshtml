@@ -1,19 +1,20 @@
 ﻿@{
     ViewBag.Title = "News";
-    Bundles.Reference("Scripts/news/newsApp.js");
+    Bundles.Reference("Scripts/news", "indexScripts");
+    Bundles.Reference("IndexStyles", "indexStyles");
 }
 
 <div ng-app="newsApp">
     <div id="content" ng-controller="NewsController" ng-init="getArticles(currentPage)">
         <div id="menu" class="col-md-3" ng-if="isAuthenticated===true">
-            @Html.ActionLink("Add new article", "add", "news", new { }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Add new article", "add", "news", new {}, new {@class = "btn btn-info"})
         </div>
         <div id="articles" class="col-md-7" ng-class="isAuthenticated===false ? 'col-md-offset-3' : ''">
 
 
             <div class="articleItem" ng-repeat="article in news.articles">
                 <div class="col-md-3">
-                    <a data-ng-href="@Url.Action("article", "news")/{{article.Id}}" ng-click="savePage()"><img src="~/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}" /></a>
+                    <a data-ng-href="@Url.Action("article", "news")/{{article.Id}}" ng-click="savePage()"><img src="~/Content/Images/{{article.ImageName}}" alt="{{article.ImageName}}"/></a>
                 </div>
                 <div class="col-md-9">
                     <div class="col-md-12 control">
@@ -36,8 +37,9 @@
         <div id="banner" class="col-md-2"></div>
     </div>
 </div>
+
 @section scripts{
-    @Bundles.RenderScripts()
+    @Bundles.RenderScripts("indexScripts")
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
@@ -48,5 +50,5 @@
     </script>
 }
 @section css{
-    <link href="~/Content/index.css" rel="stylesheet" />
+    @Bundles.RenderStylesheets("indexStyles")
 }
