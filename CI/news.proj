@@ -28,6 +28,6 @@
     </Target> 
 	<Target Name="RunGulp">
 		<Exec Command="cd &quot;$(GulpPath)&quot;" />
-		<Exec Command="gulp">
+		<Exec Command="gulp" />
     </Target> 
 </Project>
