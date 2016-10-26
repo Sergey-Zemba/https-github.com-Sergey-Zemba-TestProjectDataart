@@ -25,10 +25,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <CopyAllFilesToSingleFolderForPackageDependsOn>
-      CustomCollectFiles;
-      $(CopyAllFilesToSingleFolderForPackageDependsOn);
-    </CopyAllFilesToSingleFolderForPackageDependsOn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -316,18 +312,6 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
-  </Target>
-  <Target Name="CustomCollectFiles">
-
-    <!-- Copy minified JavaScript files -->
-    <ItemGroup>
-      <CompressedScripts Include="bower_components\**\*" />
-      <FilesForPackagingFromProject Include="%(CompressedScripts.Identity)">
-        <DestinationRelativePath>bower_components\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
-      </FilesForPackagingFromProject>
-    </ItemGroup>
-
-
   </Target>
   <ProjectExtensions>
     <VisualStudio>
