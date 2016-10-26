@@ -4,6 +4,6 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-bower-task": "^1.0.0"
+    "gulp-bower": "0.0.13"
   }
 }
