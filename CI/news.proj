@@ -27,6 +27,7 @@
         <Exec  Command="&quot;$(SqlServerRedistPath)\sqlpackage.exe&quot; /Action:Publish /sf:&quot;../%(DBProj.DBRoot)/bin/Debug/%(DBProj.DBName).dacpac&quot; /pr:&quot;../%(DBProj.DBRoot)/NewsApp.Database.publish.xml&quot;" />
     </Target> 
 	<Target Name="RunGulp">
-		<Exec Command="cd $(GulpPath) &amp;&amp; npm install &amp;&amp; gulp" />
+		<Exec Command="cd $(GulpPath) &amp;&amp; npm install" />
+		<Exec Command="cd $(GulpPath) &amp;&amp; gulp" />
     </Target> 
 </Project>
