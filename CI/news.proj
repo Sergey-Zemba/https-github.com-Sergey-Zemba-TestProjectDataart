@@ -5,6 +5,7 @@
 		<FillTableScript>..\DataBase\SPs\table_filling.sql</FillTableScript>
 		<ConnectionString>Data Source=khasql3;Initial Catalog=SZemba_Practice;Integrated Security=True</ConnectionString>
 		<SqlServerRedistPath Condition="'$(SqlServerRedistPath)' == ''">$(MSBuildProgramFiles32)\Microsoft SQL Server\120\DAC\Bin</SqlServerRedistPath>
+		<GulpPath>..\NewsApp</GulpPath>
 	</PropertyGroup>
 	<ItemGroup>
         <DBProj Include="Database">
@@ -26,6 +27,6 @@
         <Exec  Command="&quot;$(SqlServerRedistPath)\sqlpackage.exe&quot; /Action:Publish /sf:&quot;../%(DBProj.DBRoot)/bin/Debug/%(DBProj.DBName).dacpac&quot; /pr:&quot;../%(DBProj.DBRoot)/NewsApp.Database.publish.xml&quot;" />
     </Target> 
 	<Target Name="RunGulp">
-		<Exec Command="cd ../NewsApp && gulp" />
+		<Exec Command="cd $(GulpPath) && gulp" />
     </Target> 
 </Project>
