@@ -29,5 +29,7 @@
 	<Target Name="RunGulp">
 		<Exec Command="cd $(GulpPath) &amp;&amp; npm install" />
 		<Exec Command="cd $(GulpPath) &amp;&amp; gulp" />
+		<Exec Command="cd $(GulpPath) &amp;&amp; gulp movingjs" />
+		<Exec Command="cd $(GulpPath) &amp;&amp; gulp movingcss" />
     </Target> 
 </Project>
