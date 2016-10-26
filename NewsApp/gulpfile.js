@@ -23,9 +23,9 @@ var config = {
     ],
     csssrc: './bower_components/bootstrap/dist/css/bootstrap.css'
 };
-gulp.task('movingjs', function() {
+gulp.task('movejs', function() {
     return gulp.src(config.jssrc).pipe(gulp.dest('./scripts'));
 });
-gulp.task('movingcss', function () {
+gulp.task('movecss', function () {
     return gulp.src(config.csssrc).pipe(gulp.dest('./content'));
 });
