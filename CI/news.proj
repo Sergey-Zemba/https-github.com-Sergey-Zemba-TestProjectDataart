@@ -27,6 +27,7 @@
     </Target> 
 	<Target Name="RunGulp">   
         <Exec Command="cd ../NewsApp" />
+		<Exec Command="npm install">
 		<Exec Command="gulp" />
     </Target> 
 </Project>
