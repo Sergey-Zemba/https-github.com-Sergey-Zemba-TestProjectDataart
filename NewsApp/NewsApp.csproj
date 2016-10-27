@@ -38,7 +38,7 @@
       <Objects>
       </Objects>
     </PublishDatabaseSettings>
-    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
     <IncludeIisSettings>false</IncludeIisSettings>
     <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
@@ -248,25 +248,27 @@
     <Compile Include="Util\NinjectDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\index.css" />
+    <!--<Content Include="Content\index.css" />-->
+    <Content Include="Content\**" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="gulpfile.js" />
-    <Content Include="Scripts\ai.0.22.9-build00167.js" />
-    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <!--<Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />-->
     <Content Include="Properties\DataSources\NewsApp.BLL.ServiceReference1.Article.datasource" />
     <Content Include="bower.json" />
     <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\NewsApp.pubxml" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <!--<Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\news\newsApp.js" />
     <Content Include="Scripts\news\newsController.js" />
     <Content Include="Scripts\news\newsService.js" />
     <Content Include="Scripts\news\pageService.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\_references.js" />-->
+    <Content Include="Scripts\**" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -290,7 +292,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
