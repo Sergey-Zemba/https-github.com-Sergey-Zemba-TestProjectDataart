@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NewsApp.Controllers;
+using NUnit.Framework;
 
 namespace NewsApp.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class HomeControllerTest
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             HomeController controller = new HomeController();
