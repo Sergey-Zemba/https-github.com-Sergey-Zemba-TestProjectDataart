@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestfulService", "WcfRes
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NewsApp.Database", "NewsApp.Database\NewsApp.Database.sqlproj", "{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsApp.Tests", "NewsApp.Tests\NewsApp.Tests.csproj", "{1C49C721-D95C-4D2C-A797-CB6ADE550282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0270AF22-C71E-48EE-BB70-D0CF23E76FF4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1C49C721-D95C-4D2C-A797-CB6ADE550282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C49C721-D95C-4D2C-A797-CB6ADE550282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C49C721-D95C-4D2C-A797-CB6ADE550282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C49C721-D95C-4D2C-A797-CB6ADE550282}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
