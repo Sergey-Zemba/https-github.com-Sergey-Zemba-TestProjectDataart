@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace NewsApp.Tests.ModelsTests
 {
     [TestFixture]
-    class ArticleViewModelTest
+    class ArticleViewModelTests
     {
         [Test]
         public void ShouldNotSaveArticleIfImageIsNotAttached()

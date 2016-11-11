@@ -24,7 +24,7 @@ namespace NewsApp.Tests.ControllersTests
         }
 
         [Test]
-        public void IndexViewEqualsIndexCshtml()
+        public void IndexViewResultEqualsIndexCshtml()
         {
             Assert.AreEqual("Index", result.ViewName);
         }

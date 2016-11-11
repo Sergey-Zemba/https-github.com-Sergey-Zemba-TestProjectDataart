@@ -46,7 +46,7 @@ namespace NewsApp.Controllers
             ArticleDTO articleDto = newsService.GetArticle(id);
             Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, ArticleViewModel>());
             ArticleViewModel articleView = Mapper.Map<ArticleDTO, ArticleViewModel>(articleDto);
-            return View(articleView);
+            return View("Article", articleView);
         }
 
         [HttpGet]
@@ -56,7 +56,7 @@ namespace NewsApp.Controllers
             {
                 return View("~/Views/Account/NoPermission.cshtml");
             }
-            return View("~/Views/News/AddEdit.cshtml");
+            return View("AddEdit");
         }
 
         [HttpGet]
@@ -69,7 +69,7 @@ namespace NewsApp.Controllers
             ArticleDTO articleDto = newsService.GetArticle(id);
             Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, ArticleViewModel>());
             ArticleViewModel articleView = Mapper.Map<ArticleDTO, ArticleViewModel>(articleDto);
-            return View("~/Views/News/AddEdit.cshtml", articleView);
+            return View("AddEdit", articleView);
         }
 
         [HttpPost]
@@ -91,7 +91,7 @@ namespace NewsApp.Controllers
                 }
                 return RedirectToAction("Index", "Home");
             }
-            return View("~/Views/News/AddEdit.cshtml", model);
+            return View("AddEdit", model);
         }
 
         [HttpGet]
