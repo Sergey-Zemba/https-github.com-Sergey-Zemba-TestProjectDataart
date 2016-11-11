@@ -318,7 +318,7 @@ namespace NewsApp.Tests.ControllersTests
         }
 
         [Test]
-        public void ShouldRedirectToHomePageIfModeWasAcceptedAndSaved()
+        public void SaveShouldRedirectToHomePageIfModeWasAcceptedAndSaved()
         {
             var newsService = new Mock<INewsService>();
             var imageService = new Mock<IImageService>();

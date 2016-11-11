@@ -92,6 +92,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllersTests\AccountControllerTests.cs" />
     <Compile Include="ControllersTests\HomeControllerTests.cs" />
     <Compile Include="ControllersTests\NewsControllerTests.cs" />
     <Compile Include="ModelsTests\ArticleViewModelTests.cs" />
