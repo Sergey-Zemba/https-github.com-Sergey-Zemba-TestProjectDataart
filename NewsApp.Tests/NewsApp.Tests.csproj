@@ -92,11 +92,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="HomeControllerTest.cs" />
+    <Compile Include="ControllersTests\HomeControllerTests.cs" />
+    <Compile Include="ControllersTests\NewsControllerTests.cs" />
     <Compile Include="ModelsTests\ArticleViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NewsApp.BLL\NewsApp.BLL.csproj">
+      <Project>{7bdd0291-5a6f-4621-bdad-b85becb300db}</Project>
+      <Name>NewsApp.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NewsApp\NewsApp.csproj">
       <Project>{86ca0366-30a2-4810-9e91-11e0a6630169}</Project>
       <Name>NewsApp</Name>

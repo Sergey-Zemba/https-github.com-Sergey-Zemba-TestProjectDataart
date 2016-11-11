@@ -19,6 +19,7 @@ namespace NewsApp.Tests.ModelsTests
         {
             var articleViewModel = new ArticleViewModel();
             var validationResult = articleViewModel.Validate(new ValidationContext(new object()));
+            Assert.IsNotEmpty(validationResult);
             Assert.AreEqual("You have to attach an image", validationResult.First().ErrorMessage);
         }
 
@@ -30,7 +31,7 @@ namespace NewsApp.Tests.ModelsTests
                 ImageName = String.Empty
             };
             var validationResult = articleViewModel.Validate(new ValidationContext(new object()));
-            Assert.IsNull(validationResult.FirstOrDefault());
+            Assert.IsEmpty(validationResult);
         }
 
         [Test]
@@ -41,7 +42,7 @@ namespace NewsApp.Tests.ModelsTests
                 Image = new Mock<HttpPostedFileBase>().Object
             };
             var validationResult = articleViewModel.Validate(new ValidationContext(new object()));
-            Assert.IsNull(validationResult.FirstOrDefault());
+            Assert.IsEmpty(validationResult);
         }
     }
 }
