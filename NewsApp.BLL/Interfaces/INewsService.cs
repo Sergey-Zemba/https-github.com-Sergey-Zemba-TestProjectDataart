@@ -10,7 +10,7 @@ namespace NewsApp.BLL.Interfaces
 {
     public interface INewsService
     {
-        IEnumerable<ArticleDTO> GetArticles(int page, out int numberOfPages);
+        Task<IEnumerable<ArticleDTO>> GetArticles(int page, out int numberOfPages);
         ArticleDTO GetArticle(int id);
         ArticleDTO CreateArticle(ArticleDTO articleDto);
         ArticleDTO UpdateArticle(ArticleDTO articleDto);

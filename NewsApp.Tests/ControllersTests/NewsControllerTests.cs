@@ -21,7 +21,7 @@ namespace NewsApp.Tests.ControllersTests
     {
         #region GetArticles Tests
         [Test]
-        public void ReturnedJsonByGetArticlesIsNotNullAndCorrect()
+        public async Task ReturnedJsonByGetArticlesIsNotNullAndCorrect()
         {
             var newsService = new Mock<INewsService>();
             var imageService = new Mock<IImageService>();
@@ -30,11 +30,11 @@ namespace NewsApp.Tests.ControllersTests
             int numberOfArticles = 10;
             httpContext.Setup(t => t.User).Returns(principal);
             newsService.Setup(x => x.GetArticles(It.IsInRange(1, int.MaxValue, Range.Inclusive), out numberOfArticles))
-                .Returns(new List<ArticleDTO> { new ArticleDTO() });
+                .Returns(Task.Factory.StartNew(() => new List<ArticleDTO> {new ArticleDTO()}.AsEnumerable()));
             var controller = new NewsController(newsService.Object, imageService.Object);
             controller.ControllerContext = new ControllerContext(httpContext.Object, new RouteData(), controller);
             Random rand = new Random();
-            var result = controller.GetArticles(rand.Next(1, int.MaxValue)) as JsonResult;
+            var result = await controller.GetArticles(rand.Next(1, int.MaxValue)) as JsonResult;
             Assert.IsNotNull(result);
             Assert.AreEqual(1, (result.Data.GetType().GetProperty("articles").GetValue(result.Data) as List<ArticleViewModel>).Count);
             Assert.AreEqual(numberOfArticles, result.Data.GetType().GetProperty("articlesNum").GetValue(result.Data));

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
@@ -23,11 +24,11 @@ namespace NewsApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetArticles(int id)
+        public async Task<ActionResult> GetArticles(int id)
         {
             int numberOfArticles;
             int page = id;
-            IEnumerable<ArticleDTO> articleDtos = newsService.GetArticles(page, out numberOfArticles);
+            IEnumerable<ArticleDTO> articleDtos = await newsService.GetArticles(page, out numberOfArticles);
             Mapper.Initialize(cfg => cfg.CreateMap<ArticleDTO, ArticleViewModel>());
             IEnumerable<ArticleViewModel> articleViews = Mapper.Map<IEnumerable<ArticleDTO>, IEnumerable<ArticleViewModel>>(articleDtos);
             var result = new

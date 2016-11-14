@@ -18,11 +18,11 @@ namespace NewsApp.BLL.Services
         {
             client = new NewsServiceClient();
         }
-        public IEnumerable<ArticleDTO> GetArticles(int page, out int numberOfArticles)
+        public Task<IEnumerable<ArticleDTO>> GetArticles(int page, out int numberOfArticles)
         {
             IEnumerable<Article> articlesFromSevice = client.GetArticles(page, out numberOfArticles).ToList();
             Mapper.Initialize(cfg => cfg.CreateMap<Article, ArticleDTO>());
-            return Mapper.Map<IEnumerable<Article>, IEnumerable<ArticleDTO>>(articlesFromSevice);
+            return Task.Run(() => Mapper.Map<IEnumerable<Article>, IEnumerable<ArticleDTO>>(articlesFromSevice));
         }
 
         public ArticleDTO GetArticle(int id)
